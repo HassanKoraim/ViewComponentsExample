@@ -3,4 +3,38 @@
 }
 
 <h1>Index</h1>
-@await Component.InvokeAsync("Grid")
+@{
+    PersonGridModel person = new PersonGridModel()
+            {
+                GridTitle = "Persons",
+                persons = new List<Person>()
+                {
+                    new Person {PersonName = "Hasf0" , JobTitle = "ndfsa"},
+                    new Person {PersonName = "jaf", JobTitle = "jfkas"},
+                    new Person {PersonName = "fakj", JobTitle = "jfsdk"}
+                }
+            };
+}
+@* @await Component.InvokeAsync("Grid", person) *@
+@await Component.InvokeAsync("Grid", new{grid = person})
+
+@*Anthor Person Grid Model*@
+
+@{
+    PersonGridModel friends = new PersonGridModel()
+    {
+                GridTitle = "Friends",
+                persons = new List<Person>() 
+                {
+                    new Person {PersonName = "Hassan", JobTitle = "Manager"},
+                    new Person {PersonName = "Hussien", JobTitle = "Senior"},
+                    new Person {PersonName = "Mohamed", JobTitle = "Junior"},
+                    new Person {PersonName = "Ahmed", JobTitle = "DAs"},
+                    new Person {PersonName = "Abdallah", JobTitle = "Doctor"},
+
+                }
+
+    };
+}
+
+@await Component.InvokeAsync("Grid", new{grid = friends})

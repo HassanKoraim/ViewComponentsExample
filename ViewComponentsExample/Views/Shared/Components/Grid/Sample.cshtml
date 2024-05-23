@@ -1,5 +1,7 @@
-﻿@* <h1>View Component Invoked</h1> *@
-<h1>@ViewBag.Grid.GridTitle</h1>
+﻿
+@model PersonGridModel
+@* <h1>View Component Invoked</h1> *@
+<h1>@Model.GridTitle</h1>
 <div class="box">
     <table class="table w-100">
         <thead>
@@ -10,7 +12,7 @@
                 <th>Job Title</th>
             </tr>
         </thead>
-        @foreach(var person in ViewBag.Grid.persons)
+        @foreach(var person in Model.persons)
         {
             <tbody>
                 <tr>

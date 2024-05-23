@@ -10,8 +10,24 @@
     remaining essentially unchanged. It was popularised in the 1960s with the release of
     Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
     publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+@{
+    PersonGridModel personGridModel = new PersonGridModel()
+            {
+                GridTitle = "Perosn List",
+                persons = new List<Person>() {
+                    new Person {PersonName = "Hassan", JobTitle = "Manager"},
+                    new Person {PersonName = "Hussien", JobTitle = "Senior"},
+                    new Person {PersonName = "Mohamed", JobTitle = "Junior"},
+                    new Person {PersonName = "Ahmed", JobTitle = "DAs"},
+                    new Person {PersonName = "Abdallah", JobTitle = "Doctor"},
 
-@await Component.InvokeAsync("Grid")
+                }
+
+            };
+}
+@* @await Component.InvokeAsync("Grid", personGridModel) *@ 
+@*you can you use any one from that*@
+@await Component.InvokeAsync("Grid", new{grid = personGridModel})
 
 @* vc, it means View Component, and grid is the name of the view Component *@
-<vc:grid></vc:grid>
+@* <vc:grid></vc:grid> *@

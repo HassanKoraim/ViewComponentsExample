@@ -5,9 +5,9 @@ namespace ViewComponentsExample.ViewComponents
 {
     public class GridViewComponent : ViewComponent
     {
-        public async Task<IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult> InvokeAsync(PersonGridModel grid)
         {
-            PerosnGridModel model = new PerosnGridModel()
+            PersonGridModel personGridModel = new PersonGridModel()
             {
                 GridTitle = "Perosn List",
                 persons = new List<Person>() {
@@ -20,9 +20,9 @@ namespace ViewComponentsExample.ViewComponents
                 }
 
             };
-            ViewData["Grid"] = model;
+           // ViewData["Grid"] = model;
 
-            return View("Sample"); // Invoked the partial view in Views/Shared/Components/Grid/Default.cshtml
+            return View("Sample",grid); // Invoked the partial view in Views/Shared/Components/Grid/Default.cshtml
         }
     }
 }
